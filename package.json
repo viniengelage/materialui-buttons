@@ -1,8 +1,8 @@
 {
   "name": "viniengelage-materialui-button",
   "version": "1.0.0",
-  "description": "Made with create-react-library",
-  "author": "viniengelage",
+  "description": "A button component from Vinicios Engelage's MaterialUI",
+  "author": "Vinicios Engelage",
   "license": "MIT",
   "repository": "viniengelage/viniengelage-materialui-button",
   "main": "dist/index.js",

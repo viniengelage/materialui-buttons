@@ -13,16 +13,16 @@ npm install --save viniengelage-materialui-button
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from 'viniengelage-materialui-button'
-import 'viniengelage-materialui-button/dist/index.css'
+import { ButtonComponent, ButtonProps } from 'components/Button'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
+  return <ButtonComponent {...rest}>{children}</ButtonComponent>
 }
+
+export default Button;
+
 ```
 
 ## License
