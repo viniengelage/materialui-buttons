@@ -1,10 +1,17 @@
 import React from 'react'
 
-import { ExampleComponent } from 'viniengelage-materialui-button'
-import 'viniengelage-materialui-button/dist/index.css'
+import { ButtonComponent } from 'components/Button'
+import { ThemeProvider } from 'styled-components'
+import theme from 'styles/theme'
+import GlobalStyles from 'styles/global'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <ThemeProvider theme={theme}>
+      <ButtonComponent size="large">Button</ButtonComponent>
+      <GlobalStyles/>
+    </ThemeProvider>
+  )
 }
 
 export default App
