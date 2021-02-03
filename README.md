@@ -1,29 +1,56 @@
 # viniengelage-materialui-button
 
-> Made with create-react-library
+> A button component crafted with styled-compontents and react-spinner-kit. This a module of Vinicios Engelage's MaterialUI.
 
 [![NPM](https://img.shields.io/npm/v/viniengelage-materialui-button.svg)](https://www.npmjs.com/package/viniengelage-materialui-button) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save viniengelage-materialui-button
+npm install --save @viniengelage/materialui-button
+```
+
+or
+
+```bash
+yarn add @viniengelage/materialui-button
 ```
 
 ## Usage
 
-```tsx
-import React from 'react'
+```jsx
+import React from 'react';
 
-import { ButtonComponent, ButtonProps } from 'components/Button'
+import Button from 'components/Button'
 
-const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
-  return <ButtonComponent {...rest}>{children}</ButtonComponent>
-}
+const App = () => <Button>Text</Button>
 
 export default Button;
 
 ```
+
+
+
+### Theme
+
+You can add your own theme, using the function *addButtonTheme*
+
+```jsx
+import React from 'react';
+
+import theme from './myTheme';
+
+import Button, { addButtonTheme } from 'components/Button'
+
+addButtonTheme(theme)
+
+const App = () => <Button>Text</Button>
+
+export default Button;
+
+```
+
+You can use this function in your App.js
 
 ## License
 
