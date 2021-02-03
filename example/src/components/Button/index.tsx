@@ -1,14 +1,27 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { StageSpinner } from 'react-spinners-kit'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconName, library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from 'styles/global'
+
 import { Container, LoadingContainer, Icon, IconContainer } from './styles'
 
 library.add(fas)
 
+export interface ThemeProps {
+  title: string;
+  colors: {
+    primary: string;
+    background?: string;
+    main?: string;
+  }
+}
+
 export interface ButtonProps {
+  theme?: object;
   backgroundColor?: string
   icon?: IconName
   size?: 'small' | 'medium' | 'large'
@@ -19,10 +32,7 @@ export interface ButtonProps {
   onClick?: () => void
 }
 
-/**
- * Primary UI component for user interaction
- */
-export const ButtonComponent: React.FC<ButtonProps> = ({
+const ButtonComponent: React.FC<ButtonProps> = ({
   size = 'medium',
   type = 'button',
   backgroundColor,
@@ -31,11 +41,12 @@ export const ButtonComponent: React.FC<ButtonProps> = ({
   variant = 'normal',
   loading = false,
   cursor = 'click',
+  theme,
   onClick,
   ...props
 }) => {
   return (
-    <Fragment>
+    <ThemeProvider theme={theme}>
       {variant === 'normal' && loading && (
         <LoadingContainer
           cursor={cursor}
@@ -70,6 +81,9 @@ export const ButtonComponent: React.FC<ButtonProps> = ({
           <Icon icon={icon || 'paper-plane'} />
         </IconContainer>
       )}
-    </Fragment>
+      <GlobalStyles />
+    </ThemeProvider>
   )
 }
+
+export default ButtonComponent;

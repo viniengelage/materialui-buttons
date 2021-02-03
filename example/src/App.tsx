@@ -1,17 +1,22 @@
-import React from 'react'
+import React from 'react';
 
-import { ButtonComponent } from 'components/Button'
-import { ThemeProvider } from 'styled-components'
-import theme from 'styles/theme'
-import GlobalStyles from 'styles/global'
+import ButtonComponent, { ButtonProps } from 'components/Button'
 
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <ButtonComponent size="large">Button</ButtonComponent>
-      <GlobalStyles/>
-    </ThemeProvider>
-  )
+import defaultTheme from 'styles/theme'
+import exampleTheme from 'styles/userTheme'
+
+let theme = defaultTheme;
+
+export function addButtonTheme(userTheme: any) {
+  return theme = userTheme;
 }
 
-export default App
+addButtonTheme(exampleTheme)
+
+const Button:React.FC<ButtonProps> = ({children, ...rest}) => {
+  return(
+    <ButtonComponent theme={theme} {...rest}>Button</ButtonComponent>
+  )
+};
+
+export default Button;
