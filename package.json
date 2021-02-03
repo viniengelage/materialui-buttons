@@ -1,6 +1,6 @@
 {
-  "name": "viniengelage-materialui-button",
-  "version": "1.0.0",
+  "name": "@viniengelage/materialui-button",
+  "version": "1.0.1",
   "description": "A button component from Vinicios Engelage's MaterialUI",
   "author": "Vinicios Engelage",
   "license": "MIT",
