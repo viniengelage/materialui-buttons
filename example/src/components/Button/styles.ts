@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { shade } from 'polished'
+import { darken } from 'polished'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -8,20 +8,22 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas)
 
 interface ButtonProps {
-  size?: 'small' | 'medium' | 'large'
-  cursor: 'info' | 'click'
+  size?: 'default' | 'medium' | 'large' | 'custom';
+  cursor: 'info' | 'click';
+  width?: number;
+  height?: number;
 }
 
 export const Container = styled.button<ButtonProps>`
   background-color: ${(props) => props.theme.colors.primary};
-  width: 200px;
-  height: 30px;
+  width: 300px;
+  height: 40px;
   outline: none;
   border: none;
   border-radius: 3px;
   color: #fff;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.75px;
   &:hover {
@@ -32,24 +34,33 @@ export const Container = styled.button<ButtonProps>`
     margin-right: 5px;
   }
   ${(props) =>
-    props.size === 'large' &&
+    props.size === 'medium' &&
     css`
-      width: 300px;
-      height: 40px;
-      font-size: 14px;
+      width: 320px;
+      height: 50px;
+      font-size: 16px;
     `}
   ${(props) =>
-    props.size === 'small' &&
+    props.size === 'large' &&
     css`
-      width: 100px;
-      height: 20px;
-      font-size: 8px;
+      width: 350px;
+      height: 60px;
+      font-size: 18px;
     `}
+
+    ${(props) =>
+    props.size === 'custom' && props.height && props.width &&
+    css`
+      width: ${props.width}px;
+      height: ${props.height}px;
+      font-size: 14px;
+    `}
+
     ${(props) =>
     props.theme &&
     css`
       &:hover {
-        background-color: ${shade(0.2, props.theme.colors.primary)};
+        background-color: ${darken(0.1, props.theme.colors.primary)};
       }
     `}
     ${(props) =>
@@ -65,10 +76,10 @@ export const LoadingContainer = styled.div<ButtonProps>`
   ${(props) =>
     props.theme &&
     css`
-      background-color: ${shade(0.3, props.theme.colors.primary)};
+      background-color: ${darken(0.1, props.theme.colors.primary)};
     `}
-  width: 200px;
-  height: 30px;
+  width: 300px;
+  height: 40px;
   outline: none;
   border: none;
   border-radius: 3px;
@@ -76,23 +87,35 @@ export const LoadingContainer = styled.div<ButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ${(props) =>
+    props.size === 'medium' &&
+    css`
+      width: 320px;
+      height: 50px;
+      font-size: 16px;
+    `}
   ${(props) =>
     props.size === 'large' &&
     css`
-      width: 300px;
-      height: 40px;
+      width: 350px;
+      height: 60px;
+      font-size: 18px;
     `}
-  ${(props) =>
-    props.size === 'small' &&
+
+    ${(props) =>
+    props.size === 'custom' && props.height && props.width &&
     css`
-      width: 100px;
-      height: 20px;
+      width: ${props.width}px;
+      height: ${props.height}px;
+      font-size: 14px;
     `}
+
     ${(props) =>
     props.theme &&
     css`
       &:hover {
-        background-color: ${shade(0.2, props.theme.colors.primary)};
+        background-color: ${darken(0.2, props.theme.colors.primary)};
       }
     `}
     ${(props) =>
@@ -118,25 +141,26 @@ export const IconContainer = styled.div<ButtonProps>`
     height: 16px;
   }
   ${(props) =>
-    props.size === 'small' &&
+    props.size === 'medium' &&
     css`
-      width: 24px;
-      height: 24px;
-      svg {
-        width: 12px;
-        height: 12px;
-      }
+      width: 40px;
+      height: 40px;
     `}
   ${(props) =>
     props.size === 'large' &&
     css`
-      width: 48px;
-      height: 48px;
-      svg {
-        width: 24px;
-        height: 24px;
-      }
+      width: 64px;
+      height: 64px;
     `}
+
+  ${(props) =>
+  props.size === 'custom' && props.height && props.width &&
+  css`
+    width: ${props.width}px;
+    height: ${props.height}px;
+  `}
+
+
   &:hover {
     cursor: pointer;
     transform: translateY(-2px);

@@ -6,6 +6,7 @@ const theme  = {
       stroke: '#A3A3A3',
       background: '#EBEBEB',
       main: '#1E1E24',
+      text: '#EBEBEB'
   }
 }
 

@@ -1,8 +1,8 @@
 {
   "name": "@viniengelage/materialui-button",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A button component from Vinicios Engelage's MaterialUI",
-  "author": "Vinicios Engelage",
+  "author": "viniengelage",
   "license": "MIT",
   "repository": "viniengelage/viniengelage-materialui-button",
   "main": "dist/index.js",

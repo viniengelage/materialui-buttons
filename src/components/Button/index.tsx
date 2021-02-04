@@ -24,16 +24,18 @@ export interface ButtonProps {
   theme?: object;
   backgroundColor?: string
   icon?: IconName
-  size?: 'small' | 'medium' | 'large'
+  size?: 'default' | 'medium' | 'large' | 'custom';
   loading?: boolean
-  type?: 'button' | 'submit' | 'reset'
-  variant?: 'normal' | 'icon'
-  cursor?: 'info' | 'click'
-  onClick?: () => void
+  type?: 'button' | 'submit' | 'reset' ;
+  variant?: 'normal' | 'icon';
+  cursor?: 'info' | 'click';
+  width?: number;
+  height?: number;
+  onClick?: () => void;
 }
 
 const ButtonComponent: React.FC<ButtonProps> = ({
-  size = 'medium',
+  size = 'default',
   type = 'button',
   backgroundColor,
   children,
@@ -42,6 +44,8 @@ const ButtonComponent: React.FC<ButtonProps> = ({
   loading = false,
   cursor = 'click',
   theme,
+  width,
+  height,
   onClick,
   ...props
 }) => {
@@ -52,6 +56,8 @@ const ButtonComponent: React.FC<ButtonProps> = ({
           cursor={cursor}
           size={size}
           style={{ backgroundColor }}
+          width={width}
+          height={height}
           {...props}
         >
           <StageSpinner size={30} loading color='#fff' />
@@ -62,6 +68,8 @@ const ButtonComponent: React.FC<ButtonProps> = ({
           size={size}
           type={type}
           cursor={cursor}
+          width={width}
+          height={height}
           style={{ backgroundColor }}
           onClick={onClick}
           {...props}
@@ -76,9 +84,11 @@ const ButtonComponent: React.FC<ButtonProps> = ({
           style={{ backgroundColor }}
           size={size}
           cursor={cursor}
+          width={width}
+          height={height}
           {...props}
         >
-          <Icon icon={icon || 'paper-plane'} />
+          <Icon icon={icon || 'paper-plane'}/>
         </IconContainer>
       )}
       <GlobalStyles />
